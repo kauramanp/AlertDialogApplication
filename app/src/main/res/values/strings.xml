@@ -18,4 +18,7 @@
     <string name="camel_clicked">Camel</string>
     <string name="sheep_clicked">Sheep</string>
     <string name="goat_clicked">Goat</string>
+    <string name="simple_alert_dialog_with_title_message">Simple alert dialog with title message</string>
+    <string name="alert_dialog_with_single_choice"> alert dialog with single choice</string>
+    <string name="alert_dialog_with_multiple_choice"> alert dialog with multiple choice</string>
 </resources>

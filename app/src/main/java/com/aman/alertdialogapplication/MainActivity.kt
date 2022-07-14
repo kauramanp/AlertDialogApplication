@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnAlertDialog.setOnClickListener {
             var alertDialog = AlertDialog.Builder(this)
-            alertDialog.setTitle(resources.getString(R.string.select_animal))
+            alertDialog.setTitle(resources.getString(R.string.simple_alert_dialog_with_title_message))
             alertDialog.setMessage(resources.getString(R.string.message))
             alertDialog.setPositiveButton(resources.getString(R.string.positive_button)){_,_->
                 Toast.makeText(this, resources.getString(R.string.positive_button_clicked), Toast.LENGTH_LONG).show()}
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnSingleChooiceDialog.setOnClickListener {
             var alertDialog = AlertDialog.Builder(this)
-            alertDialog.setTitle(resources.getString(R.string.select_animal))
+            alertDialog.setTitle(resources.getString(R.string.alert_dialog_with_single_choice))
             alertDialog.setItems(animals) { dialog, which ->
                 when (which) {
                     0 -> {Toast.makeText(this, resources.getString(R.string.horse_clicked), Toast.LENGTH_LONG).show()}
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnMultipleChooiceDialog.setOnClickListener {
             var alertDialog = AlertDialog.Builder(this)
-            alertDialog.setTitle(resources.getString(R.string.select_animal))
+            alertDialog.setTitle(resources.getString(R.string.alert_dialog_with_multiple_choice))
             alertDialog.setMultiChoiceItems(animals, checkedItems,
                  { dialog, which, isChecked ->
                     checkedItems.set(which, isChecked)
