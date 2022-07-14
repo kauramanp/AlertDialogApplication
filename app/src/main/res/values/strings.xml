@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AlertDialogApplication</string>
+    <string name="alert_dialog">Alert Dialog</string>
+    <string name="custom_dialog">Custom Dialog</string>
+    <string name="single_choice_dialog">Single Dialog</string>
+    <string name="multiple_choice_dialog">Multiple Dialog</string>
+    <string name="title">Title</string>
+    <string name="message">Message</string>
+    <string name="positive_button">Positive Button</string>
+    <string name="positive_button_clicked">Positive button clicked</string>
+    <string name="negative_button">Negative Button</string>
+    <string name="negative_button_clicked">Negative button clicked</string>
+    <string name="neutral_button">Neutral Button</string>
+    <string name="neutral_button_clicked">Neutral button clicked</string>
+    <string name="select_animal">Select Animal</string>
+    <string name="horse_clicked">Horse Clicked</string>
+    <string name="cow_clicked">Cor</string>
+    <string name="camel_clicked">Camel</string>
+    <string name="sheep_clicked">Sheep</string>
+    <string name="goat_clicked">Goat</string>
+</resources>
