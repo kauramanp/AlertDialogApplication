@@ -21,4 +21,8 @@
     <string name="simple_alert_dialog_with_title_message">Simple alert dialog with title message</string>
     <string name="alert_dialog_with_single_choice"> alert dialog with single choice</string>
     <string name="alert_dialog_with_multiple_choice"> alert dialog with multiple choice</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="enter_value">Enter Value</string>
+
 </resources>
