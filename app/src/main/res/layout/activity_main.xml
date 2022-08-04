@@ -33,5 +33,11 @@
         android:layout_height="wrap_content"
         android:text="@string/custom_dialog" />
 
+    <Button
+        android:id="@+id/btnNextCustomActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/custom_dialog_with_validations" />
+
 </LinearLayout>
 </layout>

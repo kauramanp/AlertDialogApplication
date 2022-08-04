@@ -2,9 +2,13 @@ package com.aman.alertdialogapplication
 
 import android.app.Dialog
 import android.content.DialogInterface.OnMultiChoiceClickListener
+import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Adapter
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnNextCustomActivity.setOnClickListener {
+            var intent = Intent(this, CustomDialogActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnAlertDialog.setOnClickListener {
             var alertDialog = AlertDialog.Builder(this)
@@ -53,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnSingleChooiceDialog.setOnClickListener {
             var alertDialog = AlertDialog.Builder(this)
             alertDialog.setTitle(resources.getString(R.string.alert_dialog_with_single_choice))
-            alertDialog.setItems(animals) { dialog, which ->
+            alertDialog.setItems(animals) { _, which ->
                 when (which) {
                     0 -> {
                         Toast.makeText(
@@ -119,10 +128,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnMultipleChooiceDialog.setOnClickListener {
             var alertDialog = AlertDialog.Builder(this)
             alertDialog.setTitle(resources.getString(R.string.alert_dialog_with_multiple_choice))
-            alertDialog.setMultiChoiceItems(animals, checkedItems,
-                { dialog, which, isChecked ->
-                    checkedItems.set(which, isChecked)
-                })
+            alertDialog.setMultiChoiceItems(animals, checkedItems
+            ) { _, which, isChecked ->
+                checkedItems.set(which, isChecked)
+            }
             alertDialog.setPositiveButton(resources.getString(R.string.positive_button)) { _, _ ->
                 Toast.makeText(
                     this,
@@ -149,26 +158,29 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnCustomDialog.setOnClickListener {
-            var dialogBinding = LayoutDialogBinding.inflate(layoutInflater)
+            var dialogView = LayoutInflater.from(this).inflate(R.layout.layout_dialog, null)
             var dialog = Dialog(this@MainActivity)
-            dialog.setContentView(dialogBinding.root)
+            dialog.setContentView(dialogView)
+            var btnCancel = findViewById<Button>(R.id.btnCancel)
+            var btnOk = findViewById<Button>(R.id.btnOk)
+            var etText = findViewById<EditText>(R.id.etText)
             dialog.window?.setLayout(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
             )
             dialog.setCancelable(false)
-            dialogBinding.btnCancel.setOnClickListener {
+            btnCancel.setOnClickListener {
                 dialog.dismiss()
             }
-            dialogBinding.btnOk.setOnClickListener {
-                if (dialogBinding.etText.text.isNullOrEmpty()) {
+            btnOk.setOnClickListener {
+                if (etText.text.isNullOrEmpty()) {
                     Toast.makeText(
                         this,
                         resources.getString(R.string.enter_value),
                         Toast.LENGTH_LONG
                     ).show()
                 } else {
-                    Toast.makeText(this, dialogBinding.etText.text.toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(this, etText.text.toString(), Toast.LENGTH_LONG)
                         .show()
                     dialog.dismiss()
                 }

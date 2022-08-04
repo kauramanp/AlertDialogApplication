@@ -2,6 +2,7 @@
     <string name="app_name">AlertDialogApplication</string>
     <string name="alert_dialog">Alert Dialog</string>
     <string name="custom_dialog">Custom Dialog</string>
+    <string name="custom_dialog_with_validations">Custom Dialog with validations</string>
     <string name="single_choice_dialog">Single Dialog</string>
     <string name="multiple_choice_dialog">Multiple Dialog</string>
     <string name="title">Title</string>
@@ -22,7 +23,17 @@
     <string name="alert_dialog_with_single_choice"> alert dialog with single choice</string>
     <string name="alert_dialog_with_multiple_choice"> alert dialog with multiple choice</string>
     <string name="cancel">Cancel</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="enter_value">Enter Value</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_address">Enter address</string>
+    <string name="he">He</string>
+    <string name="she">She</string>
+    <string name="other">Others</string>
+    <string name="enter_gender">Enter gender</string>
+    <string name="update">Update</string>
+    <string name="your_name">Your Name</string>
+    <string name="your_address">Your Address</string>
+    <string name="your_gender">Your Gender</string>
 
 </resources>
