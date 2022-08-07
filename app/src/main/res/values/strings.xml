@@ -35,5 +35,7 @@
     <string name="your_name">Your Name</string>
     <string name="your_address">Your Address</string>
     <string name="your_gender">Your Gender</string>
+    <string name="bottom_sheet">Bottom Sheet</string>
+    <string name="address">12/12 XYZ Colony, near Chownk</string>
 
 </resources>

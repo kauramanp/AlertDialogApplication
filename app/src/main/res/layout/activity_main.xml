@@ -39,5 +39,11 @@
         android:layout_height="wrap_content"
         android:text="@string/custom_dialog_with_validations" />
 
+    <Button
+        android:id="@+id/btnBottomSheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bottom_sheet" />
+
 </LinearLayout>
 </layout>

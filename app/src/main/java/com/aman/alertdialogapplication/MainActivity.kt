@@ -1,7 +1,6 @@
 package com.aman.alertdialogapplication
 
 import android.app.Dialog
-import android.content.DialogInterface.OnMultiChoiceClickListener
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,7 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.aman.alertdialogapplication.databinding.ActivityMainBinding
-import com.aman.alertdialogapplication.databinding.LayoutDialogBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -161,9 +159,9 @@ class MainActivity : AppCompatActivity() {
             var dialogView = LayoutInflater.from(this).inflate(R.layout.layout_dialog, null)
             var dialog = Dialog(this@MainActivity)
             dialog.setContentView(dialogView)
-            var btnCancel = findViewById<Button>(R.id.btnCancel)
-            var btnOk = findViewById<Button>(R.id.btnOk)
-            var etText = findViewById<EditText>(R.id.etText)
+            var btnCancel = dialogView.findViewById<Button>(R.id.btnCancel)
+            var btnOk = dialogView.findViewById<Button>(R.id.btnOk)
+            var etText = dialogView.findViewById<EditText>(R.id.etText)
             dialog.window?.setLayout(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -186,6 +184,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             dialog.show()
+        }
+
+        binding.btnBottomSheet.setOnClickListener {
+            val bottomSheetFragment = BottomSheetFragment()
+            bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
         }
     }
 }
