@@ -30,129 +30,108 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnAlertDialog.setOnClickListener {
-            var alertDialog = AlertDialog.Builder(this)
-            alertDialog.setTitle(resources.getString(R.string.simple_alert_dialog_with_title_message))
-            alertDialog.setMessage(resources.getString(R.string.message))
-            alertDialog.setPositiveButton(resources.getString(R.string.positive_button)) { _, _ ->
-                Toast.makeText(
-                    this,
-                    resources.getString(R.string.positive_button_clicked),
-                    Toast.LENGTH_LONG
-                ).show()
+            AlertDialog.Builder(this).apply{
+                setTitle(resources.getString(R.string.simple_alert_dialog_with_title_message))
+                setMessage(resources.getString(R.string.message))
+                setPositiveButton(resources.getString(R.string.positive_button)) { _, _ ->
+                    Toast.makeText(
+                        this@MainActivity,
+                        resources.getString(R.string.positive_button_clicked),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                setNegativeButton(resources.getString(R.string.negative_button)) { _, _ ->
+                    Toast.makeText(
+                        this@MainActivity,
+                        resources.getString(R.string.negative_button_clicked),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                setNeutralButton(resources.getString(R.string.neutral_button)) { _, _ ->
+                    Toast.makeText(
+                        this@MainActivity,
+                        resources.getString(R.string.neutral_button_clicked),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                setCancelable(false)
+                show()
             }
-            alertDialog.setNegativeButton(resources.getString(R.string.negative_button)) { _, _ ->
-                Toast.makeText(
-                    this,
-                    resources.getString(R.string.negative_button_clicked),
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            alertDialog.setNeutralButton(resources.getString(R.string.neutral_button)) { _, _ ->
-                Toast.makeText(
-                    this,
-                    resources.getString(R.string.neutral_button_clicked),
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            alertDialog.setCancelable(false)
-            alertDialog.show()
         }
         binding.btnSingleChooiceDialog.setOnClickListener {
-            var alertDialog = AlertDialog.Builder(this)
-            alertDialog.setTitle(resources.getString(R.string.alert_dialog_with_single_choice))
-            alertDialog.setItems(animals) { _, which ->
-                when (which) {
-                    0 -> {
+            AlertDialog.Builder(this)
+                .apply {
+                    setTitle(resources.getString(R.string.alert_dialog_with_single_choice))
+                    setItems(animals) { _, which ->
                         Toast.makeText(
-                            this,
-                            resources.getString(R.string.horse_clicked),
+                            this@MainActivity,
+                            this@MainActivity.resources.getString(
+                                R.string.item_clicked_dynamic,
+                                animals[which].toString()
+                            ),
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    }
+                    setPositiveButton(resources.getString(R.string.positive_button)) { _, _ ->
+                        Toast.makeText(
+                            this@MainActivity,
+                            resources.getString(R.string.positive_button_clicked),
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                    1 -> {
+                    setNegativeButton(resources.getString(R.string.negative_button)) { _, _ ->
                         Toast.makeText(
-                            this,
-                            resources.getString(R.string.cow_clicked),
+                            this@MainActivity,
+                            resources.getString(R.string.negative_button_clicked),
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                    2 -> {
+                    setNeutralButton(resources.getString(R.string.neutral_button)) { _, _ ->
                         Toast.makeText(
-                            this,
-                            resources.getString(R.string.camel_clicked),
+                            this@MainActivity,
+                            resources.getString(R.string.neutral_button_clicked),
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                    3 -> {
-                        Toast.makeText(
-                            this,
-                            resources.getString(R.string.sheep_clicked),
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                    4 -> {
-                        Toast.makeText(
-                            this,
-                            resources.getString(R.string.goat_clicked),
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
+                    setCancelable(false)
+                    show()
                 }
-            }
-            alertDialog.setPositiveButton(resources.getString(R.string.positive_button)) { _, _ ->
-                Toast.makeText(
-                    this,
-                    resources.getString(R.string.positive_button_clicked),
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            alertDialog.setNegativeButton(resources.getString(R.string.negative_button)) { _, _ ->
-                Toast.makeText(
-                    this,
-                    resources.getString(R.string.negative_button_clicked),
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            alertDialog.setNeutralButton(resources.getString(R.string.neutral_button)) { _, _ ->
-                Toast.makeText(
-                    this,
-                    resources.getString(R.string.neutral_button_clicked),
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            alertDialog.setCancelable(false)
-            alertDialog.show()
         }
+
+        
         binding.btnMultipleChooiceDialog.setOnClickListener {
-            var alertDialog = AlertDialog.Builder(this)
-            alertDialog.setTitle(resources.getString(R.string.alert_dialog_with_multiple_choice))
-            alertDialog.setMultiChoiceItems(animals, checkedItems
+            AlertDialog.Builder(this).apply{
+            setTitle(resources.getString(R.string.alert_dialog_with_multiple_choice))
+            setMultiChoiceItems(
+                animals, checkedItems
             ) { _, which, isChecked ->
                 checkedItems.set(which, isChecked)
             }
-            alertDialog.setPositiveButton(resources.getString(R.string.positive_button)) { _, _ ->
+            setPositiveButton(resources.getString(R.string.positive_button)) { _, _ ->
                 Toast.makeText(
-                    this,
+                    this@MainActivity,
                     resources.getString(R.string.positive_button_clicked),
                     Toast.LENGTH_LONG
                 ).show()
             }
-            alertDialog.setNegativeButton(resources.getString(R.string.negative_button)) { _, _ ->
+            setNegativeButton(resources.getString(R.string.negative_button)) { _, _ ->
                 Toast.makeText(
-                    this,
+                    this@MainActivity,
                     resources.getString(R.string.negative_button_clicked),
                     Toast.LENGTH_LONG
                 ).show()
             }
-            alertDialog.setNeutralButton(resources.getString(R.string.neutral_button)) { _, _ ->
+            setNeutralButton(resources.getString(R.string.neutral_button)) { _, _ ->
                 Toast.makeText(
-                    this,
+                    this@MainActivity,
                     resources.getString(R.string.neutral_button_clicked),
                     Toast.LENGTH_LONG
                 ).show()
             }
-            alertDialog.setCancelable(false)
-            alertDialog.show()
+            setCancelable(false)
+            show()
+        }
         }
 
         binding.btnCustomDialog.setOnClickListener {
